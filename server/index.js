@@ -5,6 +5,7 @@ const cors=require('cors');
 const userRoutes=require('./Routes/userRoutes');
 const chatRoutes=require('./Routes/chatRoutes');
 const messageRoutes=require('./Routes/messageRoutes');
+const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 const app=express();
 dotenv.config();
@@ -17,6 +18,8 @@ app.get('/',(req,res)=>{
 app.use('/user',userRoutes);
 app.use('/chat',chatRoutes);
 app.use('/messages',messageRoutes);
+app.use(notFound);
+app.use(errorHandler);
 
 const connectDB=async()=>{
     await mongoose.connect(process.env.MONGO_URI)
