@@ -67,7 +67,7 @@ return (
   </Backdrop>
   <div className='login-container'>
    <div className='image-container'>
-    <img src={logo} className='welcome-logo'/>
+    <img src={logo} className='welcome-logo' alt='logo'/>
    </div>
    {showlogin && (
     <div className='login-box'>
