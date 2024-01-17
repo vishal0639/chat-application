@@ -14,7 +14,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { toggleTheme } from '../Features/themeSlice';
 import axios from 'axios';
 //import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-//import {myContext} from './MainContainer';
+import {myContext} from './MainContainer';
 
 function Sidebar() {
  
