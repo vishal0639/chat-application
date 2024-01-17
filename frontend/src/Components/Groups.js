@@ -8,13 +8,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence, motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { myContext } from "./MainContainer";
 
 function Groups() {
 
     let lightTheme=useSelector((state)=>state.themeKey);
     let navigate=useNavigate();
     let dispatch=useDispatch();
-    let [refresh,setRefresh]=useState(true);
+    const { refresh, setRefresh } = useContext(myContext);
     const [groups,setGroups]=useState([]);
     const userData=JSON.parse(sessionStorage.getItem('userData'));
     if(!userData){
@@ -23,6 +24,7 @@ function Groups() {
     }
     const user=userData.data;
     useEffect(()=>{
+        console.log("Users refreshed : ", user.token);
      const config={
        headers:{
            Authorization:`Bearer ${user.token}`
