@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect ,useContext} from 'react'
 import './myStyles.css'
 import { IconButton } from '@mui/material';
 import RefreshIcon from '@mui/icons-material/Refresh';
@@ -35,7 +35,7 @@ function Groups() {
       .then((response)=>{
        setGroups(response.data)
       })
-    },[refresh]);
+    },[refresh,user.token]);
     
 return (
 <AnimatePresence>
@@ -49,7 +49,7 @@ transition={{
 }}
 className='list-container'>
 <div className={`ug-header ${lightTheme?'':'dark'}`}>
-    <img src={logo}
+    <img src={logo} alt='logo'
     style={{height:'2rem',width:'2rem',marginLeft:'10px'}}/>
     <p className={`ug-title ${lightTheme?'':'dark'}`}>Available Groups</p>
 </div>

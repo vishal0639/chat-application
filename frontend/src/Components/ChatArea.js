@@ -12,7 +12,7 @@ import { io } from "socket.io-client";
 import {myContext} from './MainContainer';
 
 const ENDPOINT='http://localhost:8080';
-var socket,chat;
+var socket;
 
 export default function ChatArea({props}) {
 
@@ -50,7 +50,7 @@ useEffect(()=>{
   socket.on('connection',()=>{
     setSocketConnectionStatus(!socketConnectionStatus);
   })
-},[])
+},[socketConnectionStatus,userData])
 
 useEffect(()=>{
   socket.on('message recieved',(newMessage)=>{
@@ -60,7 +60,7 @@ useEffect(()=>{
       setAllMessages([...allMessages],newMessage);
     }
   })
-},[])
+},[allMessagesCopy,setAllMessages,allMessages])
 //fetch chats
 useEffect(()=>{
   const config={
