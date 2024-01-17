@@ -31,7 +31,7 @@ function Users() {
         console.log('user data from api',data);
         setUsers(data.data)
       })  
-    },[refresh])
+    },[refresh,userData.data.token])
 return (
 <AnimatePresence>
 <motion.div 
