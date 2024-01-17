@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 import Skeleton from '@mui/material/Skeleton';
 import axios from 'axios';
 import { io } from "socket.io-client";
-//import {myContext} from './MainContainer;
+import {myContext} from './MainContainer';
 
 const ENDPOINT='http://localhost:8080';
 var socket,chat;gi
@@ -22,7 +22,8 @@ export default function ChatArea({props}) {
   const [chat_id,chat_user]=dyParams._id.split("&");
   const [allMessages,setAllMessages]=useState([]);
   const [allMessagesCopy,setAllMessagesCopy]=useState([]);
-  const [refresh,setRefresh]=useState(myContext);
+  const { refresh, setRefresh } = useContext(myContext);
+  console.log("Context API : refresh : ", refresh);
   const [loaded,setLoaded]=useState(false);
   const [socketConnectionStatus,setSocketConnectionStatus]=useState(false);
 
