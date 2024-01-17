@@ -6,6 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import logo from '../images/live-chat.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence, motion } from "framer-motion";
+import { refreshSidebarFun } from "../Features/refreshSidebar";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
