@@ -12,7 +12,7 @@ import { io } from "socket.io-client";
 //import {myContext} from './MainContainer;
 
 const ENDPOINT='http://localhost:8080';
-var socket,chat;
+var socket,chat;gi
 
 export default function ChatArea({props}) {
 
