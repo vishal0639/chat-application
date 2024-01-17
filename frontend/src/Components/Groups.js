@@ -6,7 +6,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import logo from '../images/live-chat.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence, motion } from "framer-motion";
-import { refreshSidebarFun } from "../Features/refreshSidebar";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -75,7 +74,7 @@ className='list-container'>
             chatId:group._id,
             userId:userData.data._id
          },config)
-         dispatch(refreshSideBarFun())          
+         dispatch(refreshSidebarFun())          
         }}>
            <p className='con-icon'>T</p>
            <p className={`con-title ${lightTheme?'':'dark'}`}>{group.chatName}</p>
